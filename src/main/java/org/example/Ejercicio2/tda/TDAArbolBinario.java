@@ -15,6 +15,8 @@ import java.util.function.Consumer;
  * @param <T> el tipo de los elementos almacenados en el árbol
  */
 public interface TDAArbolBinario<T> {
+
+    T buscar(Comparable<T> predicate);
     /**
      * Busca y retorna el primer elemento que cumple con el predicado dado.
      *
@@ -24,15 +26,15 @@ public interface TDAArbolBinario<T> {
      * @return el primer elemento que cumple el criterio, o {@code null}
      * si no existe ninguno
      */
-    T buscar(Comparable<T> predicate);
 
+    TDAElemento<T> obtenerRaiz();
     /**
      * Retorna el elemento raíz del árbol.
      *
      * @return el elemento raíz del árbol, o {@code null} si el árbol está vacío
      */
-    TDAElemento<T> obtenerRaiz();
 
+    boolean eliminar(Comparable<T> criterioBusqueda);
     /**
      * Elimina el o los nodos según el criterio de búsqueda.
      *
@@ -40,8 +42,8 @@ public interface TDAArbolBinario<T> {
      * @return {@code true} si al menos un elemento fue eliminado;
      * {@code false} en caso contrario
      */
-    boolean eliminar(Comparable<T> criterioBusqueda);
 
+    boolean insertar(Comparable<T> dato);
     /**
      * Agrega un dato al árbol.
      *
@@ -51,8 +53,8 @@ public interface TDAArbolBinario<T> {
      * @return {@code true} si el elemento fue agregado correctamente;
      * {@code false} si el elemento ya existía y no fue agregado
      */
-    boolean insertar(Comparable<T> dato);
 
+    void inOrder(Consumer<T> consumidor);
     /**
      * Recorre el árbol en in-order
      * {@snippet :
@@ -63,8 +65,9 @@ public interface TDAArbolBinario<T> {
      * });
      *}
      */
-    void inOrder(Consumer<T> consumidor);
 
+
+    void preOrder(Consumer<T> consumidor);
     /**
      * Recorre el árbol en pre-order
      * {@snippet :
@@ -75,7 +78,8 @@ public interface TDAArbolBinario<T> {
      * });
      *}
      */
-    void preOrder(Consumer<T> consumidor);
+
+    void postOrder(Consumer<T> consumidor);
 
     /**
      * Recorre el árbol en post-order
@@ -87,25 +91,21 @@ public interface TDAArbolBinario<T> {
      * });
      *}
      */
-    void postOrder(Consumer<T> consumidor);
-
-    /**
-     * Devuelve true si el árbol es vacío
-     */
     boolean esVacio();
 
+
+    int cantidadNodos();
     /**
      * Devuelve la cantidad de nodos del árbol
      **/
-    int cantidadNodos();
 
+    int cantidadHojas();
     /**
      * Devuelve la cantidad de nodos que son hojas
      */
-    int cantidadHojas();
 
+    int cantidadNodosInternos();
     /**
      * Devuelve la cantidad de nodos que NO son hojas
      */
-    int cantidadNodosInternos();
 }
