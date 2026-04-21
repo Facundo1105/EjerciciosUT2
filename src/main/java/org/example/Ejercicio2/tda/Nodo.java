@@ -13,7 +13,7 @@ public class Nodo<T> implements TDAElemento<T>{
         this.hijoIzquierdo = null;
         this.hijoDerecho = null;
     }
-    @Override
+
     public void setHijoIzquierdo(TDAElemento<T> hijoIzquierdo) {
 
         this.hijoIzquierdo = hijoIzquierdo;
@@ -124,17 +124,23 @@ public class Nodo<T> implements TDAElemento<T>{
 
     // FALTA POR HACER
     public void inOrder(Consumer<TDAElemento<T>> consumidor) {
-
+        if (this.hijoIzquierdo != null) this.hijoIzquierdo.inOrder(consumidor);
+        consumidor.accept(this);
+        if (this.hijoDerecho != null) this.hijoDerecho.inOrder(consumidor);
     }
 
     // FALTA POR HACER
     public void preOrder(Consumer<TDAElemento<T>> consumidor) {
-
+        consumidor.accept(this);
+        if (this.hijoIzquierdo != null) this.hijoIzquierdo.preOrder(consumidor);
+        if (this.hijoDerecho != null) this.hijoDerecho.preOrder(consumidor);
     }
 
     // FALTA POR HACER
-    public void postOrder(Consumer<TDAElemento<T>> consumidor) {
-
+    public void postOrder(Consumer<TDAElemento<T>> consumidor){
+        if (this.hijoIzquierdo != null) this.hijoIzquierdo.postOrder(consumidor);
+        if (this.hijoDerecho != null) this.hijoDerecho.postOrder(consumidor);
+        consumidor.accept(this);
     }
 
     public boolean esHoja() {
