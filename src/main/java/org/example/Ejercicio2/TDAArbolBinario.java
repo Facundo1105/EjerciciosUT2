@@ -1,4 +1,4 @@
-package org.example.Ejercicio2.parte1;
+package org.example.Ejercicio2;
 
 import java.util.function.Consumer;
 
