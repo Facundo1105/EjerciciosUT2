@@ -1,6 +1,4 @@
-package org.example.Ejercicio2;
-
-import org.example.Ejercicio2.parte1.TDAElemento;
+package org.example.Ejercicio2.parte1;
 
 import java.util.function.Consumer;
 
