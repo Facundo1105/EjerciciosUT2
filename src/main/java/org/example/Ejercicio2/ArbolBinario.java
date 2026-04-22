@@ -10,33 +10,22 @@ public class ArbolBinario<T> implements TDAArbolBinario<T>
     {
         this.raiz = null;
     }
-
     @Override
-    public T buscar(Comparable<T> predicate) {
-        if (esVacio()) {
-            return null;
-        }
-
-        TDAElemento<T> nodo = this.raiz.buscar(predicate);
-
-        if (nodo == null) {
-            return null;
-        }
-
-        return nodo.getDato();
-    }
-    @Override
-    public TDAElemento <T> obtenerRaiz()
-    {
+    public TDAElemento <T> obtenerRaiz() {
         return this.raiz;
     }
-
     @Override
     public boolean esVacio()
     {
         return raiz == null;
     }
 
+    @Override
+    public T buscar(Comparable<T> predicate) {
+        if (esVacio()) return null;
+        TDAElemento<T> nodo = this.raiz.buscar(predicate);
+        return (nodo != null) ? nodo.getDato() : null;
+    }
     @Override
     public boolean insertar(Comparable<T> dato) {
         if (esVacio()) {
@@ -47,13 +36,6 @@ public class ArbolBinario<T> implements TDAArbolBinario<T>
     }
 
     @Override
-    public T buscar(Comparable<T> predicate) {
-        if (esVacio()) return null;
-        TDAElemento<T> nodo = this.raiz.buscar(predicate);
-        return (nodo != null) ? nodo.getDato() : null;
-    }
-
-    @Override
     public boolean eliminar(Comparable<T> criterioBusqueda) {
         if (esVacio()) return false;
         if (this.raiz.buscar(criterioBusqueda) == null) return false;
@@ -61,26 +43,49 @@ public class ArbolBinario<T> implements TDAArbolBinario<T>
         return true;
     }
 
-
-
-
-    boolean insertar(Comparable<T> dato);
-
-        void inOrder(Consumer<T> consumidor);
-
-        void preOrder(Consumer<T> consumidor);
-
-        void postOrder(Consumer<T> consumidor);
-
-        int cantidadNodos();
-
-
-        int cantidadHojas();
-
-        int cantidadNodosInternos();
-
-
+    @Override
+    public void inOrder(Consumer<T> consumidor) {
+        if (!esVacio()) {
+            raiz.inOrder(nodo -> consumidor.accept(nodo.getDato()));
+        }
     }
+
+    @Override
+    public void preOrder(Consumer<T> consumidor)
+    {
+        if (!esVacio()) {
+            raiz.preOrder(nodo -> consumidor.accept(nodo.getDato()));
+        }
+    }
+
+    @Override
+    public void postOrder(Consumer<T> consumidor)
+    {
+        if (!esVacio()) {
+            raiz.postOrder(nodo -> consumidor.accept(nodo.getDato()));
+        }
+    }
+
+
+    @Override
+    public int cantidadNodos() {
+        if (esVacio()) return 0;
+        return raiz.cantidadNodos();
+    }
+    @Override
+    public int cantidadHojas() {
+        if (esVacio()) return 0;
+        return raiz.cantidadHojas();
+    }
+
+    @Override
+    public int cantidadNodosInternos() {
+        if (esVacio()) return 0;
+        return raiz.cantidadNodosInternos();
+    }
+
+
+
 }
 
 
