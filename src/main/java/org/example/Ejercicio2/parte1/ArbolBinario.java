@@ -1,4 +1,6 @@
-package org.example.Ejercicio2.tda;
+package org.example.Ejercicio2.parte1;
+
+import org.example.Ejercicio2.TDAArbolBinario;
 
 import java.util.function.Consumer;
 
