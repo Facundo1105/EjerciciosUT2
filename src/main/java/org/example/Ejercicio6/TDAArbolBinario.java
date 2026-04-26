@@ -110,4 +110,6 @@ public interface TDAArbolBinario<T> {
     int cantidadNodosInternos();
 
     int altura ();
+
+    TDALista<TDAElemento <T>> completos();
 }

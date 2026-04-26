@@ -47,7 +47,7 @@ public class ArbolBinario <T> implements TDAArbolBinario {
 
     @Override
     public boolean esVacio() {
-        return false;
+        return raiz == null;
     }
 
     @Override
@@ -76,9 +76,21 @@ public class ArbolBinario <T> implements TDAArbolBinario {
         }
         return raiz.cantidadNodosInternos();
     }
+
+    @Override
     public int altura () //Punto 1 del ejercicio
     {
         if (raiz == null) return -1;
         return raiz.altura();
+    }
+
+    @Override
+    public TDALista<TDAElemento<T>> completos()
+    {
+        TDALista<TDAElemento<T>> lista = new Lista<>();
+        if (raiz == null) {
+            raiz.completos(lista);
+        }
+        return lista;
     }
 }

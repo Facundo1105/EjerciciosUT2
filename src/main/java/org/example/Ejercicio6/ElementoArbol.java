@@ -179,4 +179,18 @@ public class ElementoArbol <T> implements TDAElemento <T> { //Implementación de
         }
         return -1;
     }
+
+    @Override
+    public void completos(TDALista<TDAElemento<T>> lista) {
+        if  (hijoIzquierdo != null && hijoDerecho != null) {
+            lista.agregar(this);
+        }
+        if (hijoIzquierdo != null) {
+            hijoIzquierdo.completos(lista);
+        }
+        if (hijoDerecho != null) {
+            hijoDerecho.completos(lista);
+        }
+    }
+
 }
