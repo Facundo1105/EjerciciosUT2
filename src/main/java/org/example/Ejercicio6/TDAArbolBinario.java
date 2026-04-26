@@ -112,4 +112,6 @@ public interface TDAArbolBinario<T> {
     int altura ();
 
     TDALista<TDAElemento <T>> completos();
+    TDALista<TDAElemento <T>> enNivel (int nivel);
+
 }

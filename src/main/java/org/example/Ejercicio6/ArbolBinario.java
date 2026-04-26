@@ -85,11 +85,20 @@ public class ArbolBinario <T> implements TDAArbolBinario {
     }
 
     @Override
-    public TDALista<TDAElemento<T>> completos()
+    public TDALista<TDAElemento<T>> completos() //Punto 5 del ejercicio
     {
         TDALista<TDAElemento<T>> lista = new Lista<>();
-        if (raiz == null) {
+        if (raiz != null) {
             raiz.completos(lista);
+        }
+        return lista;
+    }
+    @Override
+    public TDALista<TDAElemento<T>>  enNivel(int nivel) //Punto 6 del ejercicio
+    {
+        TDALista<TDAElemento<T>> lista = new Lista<>();
+        if (raiz != null) {
+            raiz.enNivel(nivel,0,lista);
         }
         return lista;
     }

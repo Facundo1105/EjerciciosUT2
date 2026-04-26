@@ -122,4 +122,5 @@ public interface TDAElemento <T>{
     int obtenerNivel(Comparable<T> criterioBusqueda);
 
     void completos (TDALista<TDAElemento<T>> lista);
+    void enNivel (int nivelBuscado, int nivelActual, TDALista<TDAElemento<T>> lista);
 }

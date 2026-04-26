@@ -181,7 +181,8 @@ public class ElementoArbol <T> implements TDAElemento <T> { //Implementación de
     }
 
     @Override
-    public void completos(TDALista<TDAElemento<T>> lista) {
+    public void completos(TDALista<TDAElemento<T>> lista) //Punto 5 del ejercicio
+    {
         if  (hijoIzquierdo != null && hijoDerecho != null) {
             lista.agregar(this);
         }
@@ -190,6 +191,21 @@ public class ElementoArbol <T> implements TDAElemento <T> { //Implementación de
         }
         if (hijoDerecho != null) {
             hijoDerecho.completos(lista);
+        }
+    }
+
+    @Override
+    public void enNivel (int nivelBuscado, int nivelActual, TDALista<TDAElemento<T>> lista) //Punto 6 del ejercicio
+    {
+        if (nivelActual == nivelBuscado) {
+            lista.agregar(this);
+            return;
+        }
+        if (hijoIzquierdo != null) {
+            hijoIzquierdo.enNivel(nivelBuscado, nivelActual + 1, lista);
+        }
+        if (hijoDerecho != null) {
+            hijoDerecho.enNivel(nivelBuscado, nivelActual + 1, lista);
         }
     }
 
