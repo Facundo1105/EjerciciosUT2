@@ -66,7 +66,6 @@ public class ArbolBinario<T> implements TDAArbolBinario<T>
         }
     }
 
-
     @Override
     public int cantidadNodos() {
         if (esVacio()) return 0;
@@ -82,6 +81,17 @@ public class ArbolBinario<T> implements TDAArbolBinario<T>
     public int cantidadNodosInternos() {
         if (esVacio()) return 0;
         return raiz.cantidadNodosInternos();
+    }
+
+
+    public int altura () {
+        if (esVacio()) return 0;
+        return raiz.altura();
+    }
+
+    public int obtenerNivel(Comparable <T> criterioBusqueda) {
+        if (esVacio()) return -1;
+        return raiz.obtenerNivel(criterioBusqueda);
     }
 
 

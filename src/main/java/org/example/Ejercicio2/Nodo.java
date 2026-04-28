@@ -75,9 +75,9 @@ public class Nodo<T> implements TDAElemento<T>{
 
     public TDAElemento<T> quitarNodo(){
         if (this.hijoIzquierdo != null){
-            return this.hijoIzquierdo;
-        } else if (this.hijoDerecho != null){
             return this.hijoDerecho;
+        } else if (this.hijoDerecho != null){
+            return this.hijoIzquierdo;
         } else {
             TDAElemento<T> hijo = hijoIzquierdo;
             TDAElemento<T> padre = this;
@@ -187,6 +187,6 @@ public class Nodo<T> implements TDAElemento<T>{
 
     // FALTA POR HACER
     public int obtenerNivel(Comparable<T> criterioBusqueda) {
-        return;
+        return 1;
     }
 }

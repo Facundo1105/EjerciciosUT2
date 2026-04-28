@@ -6,7 +6,7 @@ import java.util.function.Consumer;
  * Modela un nodo del árbol binario.
  * La implementación de esta estructura debe ser recursiva.
  */
-public interface TDAElemento <T>{
+public interface TDAElemento<T> {
 
     /**
      * Asigna el nodo izquierdo del nodo actual. Puede ser nulo.
